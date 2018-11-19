@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t sliuzas/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run sliuzas/docker-react npm run test -- --coverage
